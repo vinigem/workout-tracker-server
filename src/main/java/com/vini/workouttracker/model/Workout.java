@@ -3,16 +3,20 @@ package com.vini.workouttracker.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="workout")
 public class Workout implements Serializable {
 
 	/** default serial version id */
 	private static final long serialVersionUID = 1L;
 
-	/** workout id */
-	private Long id;
+	@Id
+	private String id;
 
-	/** workout task id */
-	private Long taskId;
+	/** workout task */
+	private String task;
 
 	/** workout start time */
 	private Date startTime;
@@ -23,29 +27,29 @@ public class Workout implements Serializable {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	/**
-	 * @return the taskId
+	 * @return the task
 	 */
-	public Long getTaskId() {
-		return taskId;
+	public String getTask() {
+		return task;
 	}
 
 	/**
-	 * @param taskId the taskId to set
+	 * @param task the task to set
 	 */
-	public void setTaskId(Long taskId) {
-		this.taskId = taskId;
+	public void setTask(String task) {
+		this.task = task;
 	}
 
 	/**
@@ -81,7 +85,7 @@ public class Workout implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Workout [id=" + id + ", taskId=" + taskId + ", startTime=" + startTime + ", endTime=" + endTime + "]";
+		return "Workout [task=" + task + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
 
 

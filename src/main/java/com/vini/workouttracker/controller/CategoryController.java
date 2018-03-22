@@ -46,13 +46,13 @@ public class CategoryController {
 
 	/**
 	 * delete category
-	 * @param categoryId the category id
+	 * @param category the category name
 	 * @return boolean
 	 */
 	@RequestMapping(value="/delete-category", method = RequestMethod.POST)
-	public @ResponseBody boolean deleteCategory(@RequestBody long categoryId){
-		LOGGER.info("Request to delete category with id [{}]", categoryId);
-		return categoryService.deleteCategory(categoryId);
+	public @ResponseBody boolean deleteCategory(@RequestBody String category){
+		LOGGER.info("Request to delete category [{}]", category);
+		return categoryService.deleteCategory(category);
 	}
 
 

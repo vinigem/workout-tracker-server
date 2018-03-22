@@ -2,15 +2,17 @@ package com.vini.workouttracker.model;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="task")
 public class Task implements Serializable{
 
 	/** default serial version id */
 	private static final long serialVersionUID = 1L;
 
-	/** task id */
-	private Long id;
-
 	/** task title */
+	@Id
 	private String title;
 
 	/** task note */
@@ -19,22 +21,8 @@ public class Task implements Serializable{
 	/** task calories burnt per minute */
 	private float calories;
 
-	/** task category id */
-	private Long categoryId;
-
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
+	/** task category */
+	private String category;
 
 	/**
 	 * @return the title
@@ -79,17 +67,17 @@ public class Task implements Serializable{
 	}
 
 	/**
-	 * @return the categoryId
+	 * @return the category
 	 */
-	public Long getCategoryId() {
-		return categoryId;
+	public String getCategory() {
+		return category;
 	}
 
 	/**
-	 * @param categoryId the categoryId to set
+	 * @param category the category to set
 	 */
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	/* (non-Javadoc)
@@ -97,8 +85,8 @@ public class Task implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", title=" + title + ", note=" + note + ", calories=" + calories + ", categoryId="
-				+ categoryId + "]";
+		return "Task [title=" + title + ", note=" + note + ", calories=" + calories + ", category="
+				+ category + "]";
 	}
 
 

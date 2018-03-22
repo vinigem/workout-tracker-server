@@ -10,5 +10,5 @@ public interface ITaskService {
 
 	boolean saveTask(Task task);
 
-	boolean deleteTask(long id);
+	boolean deleteTask(String title);
 }

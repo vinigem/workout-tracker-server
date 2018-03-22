@@ -10,6 +10,6 @@ public interface ICategoryService {
 
 	boolean saveCategory(Category category);
 
-	boolean deleteCategory(long categoryId);
+	boolean deleteCategory(String category);
 
 }

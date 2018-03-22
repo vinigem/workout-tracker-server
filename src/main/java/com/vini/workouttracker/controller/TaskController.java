@@ -46,13 +46,13 @@ public class TaskController {
 
 	/**
 	 * delete task
-	 * @param taskId the task id
+	 * @param title the task title
 	 * @return boolean
 	 */
 	@RequestMapping(value="/delete-task", method = RequestMethod.POST)
-	public @ResponseBody boolean deleteTask(@RequestBody long taskId){
-		LOGGER.info("Request to delete task with id [{}]", taskId);
-		return taskService.deleteTask(taskId);
+	public @ResponseBody boolean deleteTask(@RequestBody String title){
+		LOGGER.info("Request to delete task with title [{}]", title);
+		return taskService.deleteTask(title);
 	}
 
 

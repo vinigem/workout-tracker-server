@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vini.workouttracker.dao.IWorkoutDAO;
 import com.vini.workouttracker.model.Workout;
+import com.vini.workouttracker.repository.IWorkoutDAO;
 import com.vini.workouttracker.service.IWorkoutService;
 
 @Service
@@ -21,14 +21,14 @@ public class WorkoutService implements IWorkoutService {
 
 	@Override
 	public List<Workout> getAllWorkouts() {
-		return workoutDAO.getAllWorkouts();
+		return workoutDAO.findAll();
 	}
 
 	@Override
 	public boolean saveWorkout(Workout workout) {
 		boolean status = false;
 		try {
-			workoutDAO.saveWorkout(workout);
+			workoutDAO.save(workout);
 			status = true;
 		}catch (Exception e) {
 			LOGGER.error("Error while saving workout. {}", e);

@@ -2,30 +2,18 @@ package com.vini.workouttracker.model;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="category")
 public class Category implements Serializable {
 
 	/** default serial version id */
 	private static final long serialVersionUID = 1L;
 
-	/** category id */
-	private Long id;
-
 	/** category name */
+	@Id
 	private String name;
-
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	/**
 	 * @return the name
@@ -46,7 +34,7 @@ public class Category implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + "]";
+		return "Category [name=" + name + "]";
 	}
 
 
