@@ -4,7 +4,6 @@
 	<groupId>com.vini</groupId>
 	<artifactId>WorkoutTrackerServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>WorkoutTrackerServer</name>
 	<description>Workout Tracker Server</description>
 
