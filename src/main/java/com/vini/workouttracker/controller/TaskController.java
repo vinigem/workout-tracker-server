@@ -1,0 +1,59 @@
+package com.vini.workouttracker.controller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vini.workouttracker.model.Task;
+import com.vini.workouttracker.service.ITaskService;
+
+
+@RestController
+public class TaskController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(TaskController.class);
+
+	@Autowired
+	private ITaskService taskService;
+
+	/**
+	 * view all tasks
+	 * @return tasks
+	 */
+	@RequestMapping(value="/view-tasks", method = RequestMethod.GET)
+	public @ResponseBody List<Task> viewTasks(){
+		LOGGER.info("Request to fetch all tasks");
+		return taskService.getAllTasks();
+	}
+
+	/**
+	 * save or update task
+	 * @param task the task model
+	 * @return boolean
+	 */
+	@RequestMapping(value="/save-task", method = RequestMethod.POST)
+	public @ResponseBody boolean saveTask(@RequestBody Task task){
+		LOGGER.info("Request to save task: {}", task);
+		return taskService.saveTask(task);
+	}
+
+	/**
+	 * delete task
+	 * @param taskId the task id
+	 * @return boolean
+	 */
+	@RequestMapping(value="/delete-task", method = RequestMethod.POST)
+	public @ResponseBody boolean deleteTask(@RequestBody long taskId){
+		LOGGER.info("Request to delete task with id [{}]", taskId);
+		return taskService.deleteTask(taskId);
+	}
+
+
+}

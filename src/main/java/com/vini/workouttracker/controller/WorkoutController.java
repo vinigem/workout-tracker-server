@@ -42,16 +42,6 @@ public class WorkoutController {
 		LOGGER.info("Request to save workout: {}", workout);
 		return workoutService.saveWorkout(workout);
 	}
-
-	/**
-	 * delete workout
-	 * @param workoutId the workout id
-	 * @return boolean
-	 */
-	@RequestMapping(value="/delete-workout", method = RequestMethod.POST)
-	public @ResponseBody boolean deleteWorkout(@RequestBody long workoutId){
-		LOGGER.info("Request to delete workout with id [{}]", workoutId);
-		return workoutService.deleteWorkout(workoutId);
-	}
+	
 
 }

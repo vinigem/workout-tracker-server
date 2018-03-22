@@ -10,6 +10,4 @@ public interface IWorkoutService {
 	
 	boolean saveWorkout(Workout workout);
 	
-	boolean deleteWorkout(long id);
-
 }

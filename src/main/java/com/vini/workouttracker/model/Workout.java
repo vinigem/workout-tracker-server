@@ -1,95 +1,79 @@
 package com.vini.workouttracker.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Workout implements Serializable {
 
 	/** default serial version id */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** workout id */
-	private long id;
+	private Long id;
 
-	/** workout title */
-	private String title;
+	/** workout task id */
+	private Long taskId;
 
-	/** workout note */
-	private String note;
+	/** workout start time */
+	private Date startTime;
 
-	/** workout calories burnt per minute */
-	private float calories;
-
-	/** workout category */
-	private Category category;
+	/** workout end time */
+	private Date endTime;
 
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 	/**
-	 * @return the title
+	 * @return the taskId
 	 */
-	public String getTitle() {
-		return title;
+	public Long getTaskId() {
+		return taskId;
 	}
 
 	/**
-	 * @param title the title to set
+	 * @param taskId the taskId to set
 	 */
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTaskId(Long taskId) {
+		this.taskId = taskId;
 	}
 
 	/**
-	 * @return the note
+	 * @return the startTime
 	 */
-	public String getNote() {
-		return note;
+	public Date getStartTime() {
+		return startTime;
 	}
 
 	/**
-	 * @param note the note to set
+	 * @param startTime the startTime to set
 	 */
-	public void setNote(String note) {
-		this.note = note;
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
 	}
 
 	/**
-	 * @return the calories
+	 * @return the endTime
 	 */
-	public float getCalories() {
-		return calories;
+	public Date getEndTime() {
+		return endTime;
 	}
 
 	/**
-	 * @param calories the calories to set
+	 * @param endTime the endTime to set
 	 */
-	public void setCalories(float calories) {
-		this.calories = calories;
-	}
-
-	/**
-	 * @return the category
-	 */
-	public Category getCategory() {
-		return category;
-	}
-
-	/**
-	 * @param category the category to set
-	 */
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
 	}
 
 	/* (non-Javadoc)
@@ -97,9 +81,8 @@ public class Workout implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Workout [id=" + id + ", title=" + title + ", note=" + note + ", calories=" + calories + ", category="
-				+ category + "]";
+		return "Workout [id=" + id + ", taskId=" + taskId + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
 
-	
+
 }

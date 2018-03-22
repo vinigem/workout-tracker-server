@@ -1,4 +1,4 @@
-package com.vini.workouttracker.repository;
+package com.vini.workouttracker.dao;
 
 import java.util.List;
 
@@ -9,7 +9,5 @@ public interface IWorkoutDAO {
 	List<Workout> getAllWorkouts();
 
 	void saveWorkout(Workout workout);
-
-	void deleteWorkout(long id);
-
+	
 }
