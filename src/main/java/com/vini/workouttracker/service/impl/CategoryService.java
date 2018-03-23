@@ -37,13 +37,13 @@ public class CategoryService implements ICategoryService {
 	}
 
 	@Override
-	public boolean deleteCategory(String category) {
+	public boolean deleteCategory(String id) {
 		boolean status = false;
 		try {
-			categoryDAO.delete(category);
+			categoryDAO.delete(id);
 			status = true;
 		}catch (Exception e) {
-			LOGGER.error("Error while deleting category[{}]. {}", category, e);
+			LOGGER.error("Error while deleting category with id[{}]. {}", id, e);
 		}
 		return status;
 	}

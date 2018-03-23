@@ -85,8 +85,8 @@ public class Workout implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Workout [task=" + task + ", startTime=" + startTime + ", endTime=" + endTime + "]";
+		return "Workout [id=" + id + ", task=" + task + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
 
-
+	
 }
