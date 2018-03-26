@@ -25,21 +25,21 @@ public class DateUtil {
 	 * @return boolean
 	 */
 	public static boolean isTodaysDate(Date dateToCheck) {
-		Calendar c = Calendar.getInstance();
-		c.set(Calendar.HOUR_OF_DAY, 0);
-		c.set(Calendar.MINUTE, 0);
-		c.set(Calendar.SECOND, 0);
-		c.set(Calendar.MILLISECOND, 0);
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
 
-		Date today = c.getTime();
+		Date today = cal.getTime();
 
-		c.setTime(dateToCheck);
-		c.set(Calendar.HOUR_OF_DAY, 0);
-		c.set(Calendar.MINUTE, 0);
-		c.set(Calendar.SECOND, 0);
-		c.set(Calendar.MILLISECOND, 0);
+		cal.setTime(dateToCheck);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
 
-		Date dateSpecified = c.getTime();
+		Date dateSpecified = cal.getTime();
 		return today.compareTo(dateSpecified) == 0;
 	}
 
@@ -104,10 +104,15 @@ public class DateUtil {
 		return "Week " + week;
 	}
 	
+	/**
+	 * get month no of date
+	 * @param date the date
+	 * @return month number
+	 */
 	public static String getMonthNo(Date date) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
-		return String.valueOf(cal.get(Calendar.MONTH + 1));
+		return String.valueOf(cal.get(Calendar.MONTH) + 1);
 	}
 	
 	/**
@@ -115,10 +120,9 @@ public class DateUtil {
 	 * @return date
 	 */
 	private static Date getMondayOfWeek() {
-		Calendar c = Calendar.getInstance();
-		c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-		System.out.println("Monday of Current Week: " + c.getTime());
-		return c.getTime();
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+		return cal.getTime();
 	}
 
 	/**
@@ -126,10 +130,11 @@ public class DateUtil {
 	 * @return date
 	 */
 	private static Date getSundayOfWeek() {
-		Calendar c = Calendar.getInstance();
-		c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-		System.out.println("Suday of Current Week: " + c.getTime());
-		return c.getTime();
+		Date monday = getMondayOfWeek();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(monday);
+		cal.add(Calendar.DATE, 6);
+		return cal.getTime();
 	}
 
 }
