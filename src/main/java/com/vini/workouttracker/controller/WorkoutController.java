@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vini.workouttracker.model.TrackData;
 import com.vini.workouttracker.model.Workout;
 import com.vini.workouttracker.service.IWorkoutService;
 
@@ -41,6 +42,16 @@ public class WorkoutController {
 	public @ResponseBody boolean saveWorkout(@RequestBody Workout workout){
 		LOGGER.info("Request to save workout: {}", workout);
 		return workoutService.saveWorkout(workout);
+	}
+	
+	/**
+	 * get workout tracking data
+	 * @return track data
+	 */
+	@RequestMapping(value="/get-workout-track-data", method = RequestMethod.GET)
+	public @ResponseBody TrackData getWorkoutTrackData(){
+		LOGGER.info("Request to get track data");
+		return workoutService.getWorkoutTrackData();
 	}
 	
 
