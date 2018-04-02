@@ -1,5 +1,6 @@
 package com.vini.workouttracker.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -28,9 +29,9 @@ public class TaskController {
 	 * @return tasks
 	 */
 	@RequestMapping(value="/view-tasks", method = RequestMethod.GET)
-	public @ResponseBody List<Task> viewTasks(){
-		LOGGER.info("Request to fetch all tasks");
-		return taskService.getAllTasks();
+	public @ResponseBody List<Task> viewTasks(Principal principal){
+		LOGGER.info("Request to fetch all tasks for {}", principal.getName());
+		return taskService.getAllTasks(principal.getName());
 	}
 
 	/**

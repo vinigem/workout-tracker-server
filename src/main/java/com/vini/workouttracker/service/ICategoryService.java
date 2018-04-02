@@ -6,7 +6,7 @@ import com.vini.workouttracker.model.Category;
 
 public interface ICategoryService {
 
-	List<Category> getAllCategories();
+	List<Category> getAllCategories(String username);
 
 	boolean saveCategory(Category category);
 

@@ -23,6 +23,9 @@ public class Task implements Serializable{
 
 	/** task category */
 	private String category;
+	
+	/** user */
+	private String user;
 
 	/**
 	 * @return the title
@@ -80,14 +83,27 @@ public class Task implements Serializable{
 		this.category = category;
 	}
 
+	/**
+	 * @return the user
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(String user) {
+		this.user = user;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Task [title=" + title + ", note=" + note + ", calories=" + calories + ", category="
-				+ category + "]";
+		return "Task [title=" + title + ", note=" + note + ", calories=" + calories + ", category=" + category
+				+ ", user=" + user + "]";
 	}
-
 
 }

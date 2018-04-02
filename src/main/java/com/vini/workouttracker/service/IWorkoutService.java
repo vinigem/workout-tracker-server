@@ -7,10 +7,10 @@ import com.vini.workouttracker.model.Workout;
 
 public interface IWorkoutService {
 	
-	List<Workout> getAllWorkouts();
+	List<Workout> getAllWorkouts(String username);
 	
 	boolean saveWorkout(Workout workout);
 
-	TrackData getWorkoutTrackData();
+	TrackData getWorkoutTrackData(String username);
 	
 }

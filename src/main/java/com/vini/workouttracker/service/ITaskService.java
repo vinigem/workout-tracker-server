@@ -6,7 +6,7 @@ import com.vini.workouttracker.model.Task;
 
 public interface ITaskService {
 
-	List<Task> getAllTasks();
+	List<Task> getAllTasks(String username);
 
 	boolean saveTask(Task task);
 

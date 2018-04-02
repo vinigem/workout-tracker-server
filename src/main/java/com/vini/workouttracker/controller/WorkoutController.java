@@ -1,5 +1,6 @@
 package com.vini.workouttracker.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -28,9 +29,9 @@ public class WorkoutController {
 	 * @return workouts
 	 */
 	@RequestMapping(value="/view-workouts", method = RequestMethod.GET)
-	public @ResponseBody List<Workout> viewWorkouts(){
-		LOGGER.info("Request to fetch all workouts");
-		return workoutService.getAllWorkouts();
+	public @ResponseBody List<Workout> viewWorkouts(Principal principal){
+		LOGGER.info("Request to fetch all workouts for {}", principal.getName());
+		return workoutService.getAllWorkouts(principal.getName());
 	}
 
 	/**
@@ -49,9 +50,9 @@ public class WorkoutController {
 	 * @return track data
 	 */
 	@RequestMapping(value="/get-workout-track-data", method = RequestMethod.GET)
-	public @ResponseBody TrackData getWorkoutTrackData(){
-		LOGGER.info("Request to get track data");
-		return workoutService.getWorkoutTrackData();
+	public @ResponseBody TrackData getWorkoutTrackData(Principal principal){
+		LOGGER.info("Request to get track data for {}", principal.getName());
+		return workoutService.getWorkoutTrackData(principal.getName());
 	}
 	
 

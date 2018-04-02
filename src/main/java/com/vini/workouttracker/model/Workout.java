@@ -23,6 +23,9 @@ public class Workout implements Serializable {
 
 	/** workout end time */
 	private Date endTime;
+	
+	/** user */
+	private String user;
 
 	/**
 	 * @return the id
@@ -80,13 +83,27 @@ public class Workout implements Serializable {
 		this.endTime = endTime;
 	}
 
+	/**
+	 * @return the user
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUser(String user) {
+		this.user = user;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Workout [id=" + id + ", task=" + task + ", startTime=" + startTime + ", endTime=" + endTime + "]";
+		return "Workout [id=" + id + ", task=" + task + ", startTime=" + startTime + ", endTime=" + endTime
+				+ ", user=" + user + "]";
 	}
-
 	
 }

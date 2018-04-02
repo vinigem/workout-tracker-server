@@ -20,8 +20,8 @@ public class CategoryService implements ICategoryService {
 	private ICategoryDAO categoryDAO;
 
 	@Override
-	public List<Category> getAllCategories() {
-		return categoryDAO.findAll();
+	public List<Category> getAllCategories(String username) {
+		return categoryDAO.findByUser(username);
 	}
 
 	@Override

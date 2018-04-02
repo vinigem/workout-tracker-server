@@ -1,5 +1,6 @@
 package com.vini.workouttracker.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -28,9 +29,9 @@ public class CategoryController {
 	 * @return categories
 	 */
 	@RequestMapping(value="/view-categories", method = RequestMethod.GET)
-	public @ResponseBody List<Category> viewCategories(){
-		LOGGER.info("Request to fetch all categories");
-		return categoryService.getAllCategories();
+	public @ResponseBody List<Category> viewCategories(Principal principal){
+		LOGGER.info("Request to fetch all categories for {}", principal.getName());
+		return categoryService.getAllCategories(principal.getName());
 	}
 
 	/**
@@ -55,10 +56,4 @@ public class CategoryController {
 		return categoryService.deleteCategory(id);
 	}
 	
-	@RequestMapping(value="sum")
-	public int sum(){
-		return 10+20;
-	}
-
-
 }

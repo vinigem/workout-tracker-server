@@ -29,8 +29,8 @@ public class WorkoutService implements IWorkoutService {
 	private ITaskDAO taskDAO;
 
 	@Override
-	public List<Workout> getAllWorkouts() {
-		return workoutDAO.findAll();
+	public List<Workout> getAllWorkouts(String username) {
+		return workoutDAO.findByUser(username);
 	}
 
 	@Override
@@ -47,10 +47,10 @@ public class WorkoutService implements IWorkoutService {
 	}
 
 	@Override
-	public TrackData getWorkoutTrackData() {
+	public TrackData getWorkoutTrackData(String username) {
 		TrackData trackData = new TrackData();
 
-		List<Workout> workouts = getAllWorkouts();
+		List<Workout> workouts = getAllWorkouts(username);
 
 		float dayWorkoutTime = 0;
 		float weekWorkoutTime = 0;

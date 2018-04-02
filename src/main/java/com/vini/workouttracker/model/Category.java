@@ -16,6 +16,9 @@ public class Category implements Serializable {
 
 	/** category name */
 	private String name;
+	
+	/** user */
+	private String user;
 
 	/**
 	 * @return the id
@@ -45,12 +48,26 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 
+	/**
+	 * @return the user
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(String user) {
+		this.user = user;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + "]";
+		return "Category [id=" + id + ", name=" + name + ", user=" + user + "]";
 	}
 
 }

@@ -20,8 +20,8 @@ public class TaskService implements ITaskService {
 	private ITaskDAO taskDAO;
 
 	@Override
-	public List<Task> getAllTasks() {
-		return taskDAO.findAll();
+	public List<Task> getAllTasks(String username) {
+		return taskDAO.findByUser(username);
 	}
 
 	@Override
