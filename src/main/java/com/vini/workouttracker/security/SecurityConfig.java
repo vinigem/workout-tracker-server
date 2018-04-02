@@ -66,11 +66,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 			.csrf().disable();
 	}
-	
-	/* To allow Pre-flight [OPTIONS] request from browser */
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
-    }
-
+		
 }
