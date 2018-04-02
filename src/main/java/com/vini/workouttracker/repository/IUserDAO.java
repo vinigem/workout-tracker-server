@@ -6,6 +6,6 @@ import com.vini.workouttracker.model.User;
 
 public interface IUserDAO extends MongoRepository<User, String> {
 	
-	public User findByUsername(String username);
+	User findByUsername(String username);
 
 }
