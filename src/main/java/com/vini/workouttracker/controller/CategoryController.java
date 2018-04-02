@@ -54,6 +54,11 @@ public class CategoryController {
 		LOGGER.info("Request to delete category with id [{}]", id);
 		return categoryService.deleteCategory(id);
 	}
+	
+	@RequestMapping(value="sum")
+	public int sum(){
+		return 10+20;
+	}
 
 
 }
