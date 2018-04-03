@@ -15,7 +15,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import com.vini.workouttracker.model.User;
 import com.vini.workouttracker.repository.IUserDAO;
@@ -35,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService()).passwordEncoder(new BCryptPasswordEncoder(8));
+		auth.userDetailsService(userDetailsService());
 	}
 
 	@Bean
@@ -50,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 					return new org.springframework.security.core.userdetails.User(user.getUsername(),
 							user.getPassword(), true, true, true, true, AuthorityUtils.createAuthorityList("USER"));
 				} else {
-					LOGGER.error("User Not found. Authentication failed");
+					LOGGER.error("User {} Not found. Authentication failed", username);
 					throw new UsernameNotFoundException("could not find the user '" + username + "'");
 				}
 			}
