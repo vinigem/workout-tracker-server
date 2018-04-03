@@ -61,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
 		.and()
 			.httpBasic()
-			.authenticationEntryPoint(authEntryPoint)
+			//.authenticationEntryPoint(authEntryPoint)
 		.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and()
