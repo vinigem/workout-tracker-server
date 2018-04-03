@@ -19,7 +19,7 @@ public class AuthEntryPoint implements AuthenticationEntryPoint {
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authEx)
 			throws IOException, ServletException {
-		LOGGER.error("HTTP Status 401 - {}", authEx.getMessage());
+		LOGGER.error("HTTP Status 401 - {}, {}", authEx.getMessage(), request.getRequestURI());
 		response.sendError( HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized" );
 	}
 	
