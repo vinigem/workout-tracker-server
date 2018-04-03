@@ -1,5 +1,7 @@
 package com.vini.workouttracker.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +21,8 @@ import com.vini.workouttracker.repository.IUserDAO;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
 
 	@Autowired
 	private IUserDAO userDAO;
@@ -39,9 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 				User user = userDAO.findByUsername(username);
 				if (user != null) {
+					LOGGER.info("User found. Authentication successfull");
 					return new org.springframework.security.core.userdetails.User(user.getUsername(),
 							user.getPassword(), true, true, true, true, AuthorityUtils.createAuthorityList("USER"));
 				} else {
+					LOGGER.error("User Not found. Authentication failed");
 					throw new UsernameNotFoundException("could not find the user '" + username + "'");
 				}
 			}
@@ -53,19 +59,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.authorizeRequests()
-			.antMatchers("/login", "/register").permitAll()
-			.anyRequest().authenticated()
+		.httpBasic()
 		.and()
-			.logout().permitAll()
-			.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
+		.authorizeRequests()
+		.antMatchers("/login", "/register").permitAll()
+		.anyRequest().authenticated()
 		.and()
-			.httpBasic()
-			.authenticationEntryPoint(authEntryPoint)
+		.logout().permitAll()
+		.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
 		.and()
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.csrf().disable()
+		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and()
-			.csrf().disable();			
+		.exceptionHandling()
+		.authenticationEntryPoint(authEntryPoint);
 	}		
 				
 }
