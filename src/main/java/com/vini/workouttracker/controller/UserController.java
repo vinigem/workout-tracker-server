@@ -1,9 +1,9 @@
 package com.vini.workouttracker.controller;
 
+import java.security.Principal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,9 +26,10 @@ public class UserController {
 	 * @return user
 	 */
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public boolean user(Authentication authentication) {
-		LOGGER.info("authentication {}", authentication);
-		return null != authentication && authentication.isAuthenticated();
+	public Principal user(Principal principal, @RequestBody User user) {
+		LOGGER.info("principal {}", principal);
+		LOGGER.info("user {}", user);
+		return principal;
 	}
 	
 	/**
