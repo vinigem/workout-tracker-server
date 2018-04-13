@@ -9,5 +9,9 @@ import com.vini.workouttracker.model.Category;
 public interface ICategoryDAO extends MongoRepository<Category, String> {
 
 	List<Category> findByUser(String name);
+
+	Category findByNameAndUser(String name, String user);
+
+	
 	
 }

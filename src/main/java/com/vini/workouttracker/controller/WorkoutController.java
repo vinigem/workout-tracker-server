@@ -16,6 +16,11 @@ import com.vini.workouttracker.model.TrackData;
 import com.vini.workouttracker.model.Workout;
 import com.vini.workouttracker.service.IWorkoutService;
 
+/**
+ * Controller to handle workout related calls
+ * @author Vinit Kumar
+ *
+ */
 @RestController
 public class WorkoutController {
 

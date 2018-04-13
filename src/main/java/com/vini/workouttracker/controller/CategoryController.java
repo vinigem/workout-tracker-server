@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vini.workouttracker.model.Category;
 import com.vini.workouttracker.service.ICategoryService;
 
-
+/**
+ * Controller to handle all Category related calls
+ * @author Vinit Kumar
+ *
+ */
 @RestController
 public class CategoryController {
 
@@ -40,7 +44,7 @@ public class CategoryController {
 	 * @return boolean
 	 */
 	@RequestMapping(value="/save-category", method = RequestMethod.POST)
-	public @ResponseBody boolean saveCategory(@RequestBody Category category){
+	public @ResponseBody String saveCategory(@RequestBody Category category){
 		LOGGER.info("Request to save category: {}", category);
 		return categoryService.saveCategory(category);
 	}

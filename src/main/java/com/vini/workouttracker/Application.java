@@ -11,6 +11,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.vini.workouttracker.security.SecurityConfig;
 
+/**
+ * The main application class
+ * @author Vinit Kumar
+ *
+ */
 @SpringBootApplication
 @Configuration
 @Import({SecurityConfig.class})

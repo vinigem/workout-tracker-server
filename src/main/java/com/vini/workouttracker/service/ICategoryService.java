@@ -8,7 +8,7 @@ public interface ICategoryService {
 
 	List<Category> getAllCategories(String username);
 
-	boolean saveCategory(Category category);
+	String saveCategory(Category category);
 
 	boolean deleteCategory(String id);
 

@@ -17,6 +17,11 @@ import com.vini.workouttracker.repository.IWorkoutDAO;
 import com.vini.workouttracker.service.IWorkoutService;
 import com.vini.workouttracker.util.DateUtil;
 
+/**
+ * Workout service class
+ * @author Vinit Kumar
+ *
+ */
 @Service
 public class WorkoutService implements IWorkoutService {
 
@@ -28,11 +33,22 @@ public class WorkoutService implements IWorkoutService {
 	@Autowired
 	private ITaskDAO taskDAO;
 
+	
+	/**
+	 * get all workouts
+	 * @param username the username
+	 * @return workouts
+	 */
 	@Override
 	public List<Workout> getAllWorkouts(String username) {
 		return workoutDAO.findByUser(username);
 	}
 
+	/**
+	 * save workout
+	 * @param workout the workout objec
+	 * @return status
+	 */
 	@Override
 	public boolean saveWorkout(Workout workout) {
 		boolean status = false;
@@ -46,6 +62,12 @@ public class WorkoutService implements IWorkoutService {
 
 	}
 
+	
+	/**
+	 * get workout tracking data
+	 * @param username the username
+	 * @return trackdata
+	 */
 	@Override
 	public TrackData getWorkoutTrackData(String username) {
 		TrackData trackData = new TrackData();

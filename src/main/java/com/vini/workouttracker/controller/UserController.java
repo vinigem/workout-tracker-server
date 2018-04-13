@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vini.workouttracker.model.User;
 import com.vini.workouttracker.service.IUserService;
 
+/**
+ * Controller to handle user related calls
+ * @author Vinit Kumar
+ *
+ */
 @RestController
 public class UserController {
 	

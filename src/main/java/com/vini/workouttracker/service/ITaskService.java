@@ -8,7 +8,7 @@ public interface ITaskService {
 
 	List<Task> getAllTasks(String username);
 
-	boolean saveTask(Task task);
+	String saveTask(Task task, boolean update);
 
 	boolean deleteTask(String title);
 }

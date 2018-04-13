@@ -9,13 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vini.workouttracker.model.Task;
 import com.vini.workouttracker.service.ITaskService;
 
-
+/**
+ * Controller to handle task related calls
+ * @author Vinit Kumar
+ *
+ */
 @RestController
 public class TaskController {
 	
@@ -40,9 +45,9 @@ public class TaskController {
 	 * @return boolean
 	 */
 	@RequestMapping(value="/save-task", method = RequestMethod.POST)
-	public @ResponseBody boolean saveTask(@RequestBody Task task){
+	public @ResponseBody String saveTask(@RequestBody Task task, @RequestParam boolean update){
 		LOGGER.info("Request to save task: {}", task);
-		return taskService.saveTask(task);
+		return taskService.saveTask(task, update);
 	}
 
 	/**

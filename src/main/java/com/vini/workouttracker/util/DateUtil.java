@@ -4,6 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+
+/**
+ * Date util class
+ * @author Vinit Kumar
+ *
+ */
 public class DateUtil {
 	
 	private static SimpleDateFormat DAY_NAME_FORMATTTER = new SimpleDateFormat("EEE");
